@@ -15,6 +15,11 @@ export const ButtonIngresar = styled.button`
   border: 0;
   margin: 20px 40px 20px 20px;
   cursor: pointer;
+  &:hover  {
+    color: #fff;
+    background-color: #E31C79;
+    border-color: #0a58ca;
+  }
 `;
 
 export const TitleButton = styled.div`
