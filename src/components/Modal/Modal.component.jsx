@@ -1,22 +1,17 @@
 import React, { Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-    Background,
-    ModalWrapper,
-    CloseModalBtn
+    MyVerticallyCenteredModal
 
 } from './Modal.styles';
 
 export const Modal = ({showModal, setShowModal}) =>{
     return (
         <>
-        {showModal ? (
-            <Background>
-                <ModalWrapper showModal={showModal}>
-                    <CloseModalBtn onClick={() => 
-                        setShowModal(prev => !prev)}>❌</CloseModalBtn>
-                </ModalWrapper>
-            </Background>
-        ) : null}
+        <MyVerticallyCenteredModal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+      />
         </>  
     )
 }

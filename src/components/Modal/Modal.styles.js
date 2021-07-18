@@ -1,35 +1,45 @@
-import styled from "styled-components";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button, Form} from 'react-bootstrap'
 
-export const Background = styled.div`
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    position: fixed;
-    display: flex;
-    justify-content : center;
-    align-items: center;
-`;
 
-export const ModalWrapper = styled.div`
-    width: 800px;
-    height: 500px;
-    box-shadow: 0 5px 16px rgba(0,0,0,0.2);
-    background: #fff;
-    color: #000;
-    display: grid;
-    grid-template-colums: 1fr 1fr;
-    position: relative;
-    z-index: 10;
-    border-radius: 10px;
-`;
+export function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>         
+                <Form>                 
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Name" />
+                    </Form.Group>
 
-export const CloseModalBtn = styled.div`
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    z-index: 10;
-`;
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPhone">
+                        <Form.Label>Phone Number</Form.Label>
+                        <Form.Control type="text" placeholder="Phone number" />
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit">
+                        Enviar
+                    </Button>
+                </Form>        
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
